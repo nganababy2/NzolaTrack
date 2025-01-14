@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      @keyframes fadeInOut {
+        0% { opacity: 0.4; }
+        50% { opacity: 1; }
+        100% { opacity: 0.4; }
+      }
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .animate-fade {
+        animation: fadeInOut 2s infinite;
+      }
+      .logo-container {
+        animation: rotate 3s infinite linear;
+        transform-origin: center;
+      }
+    </style>
+  </defs>
+
+  <!-- Main logo box -->
+  <g class="logo-container">
+    <!-- Front face -->
+    <path d="M100 70 L130 85 L130 115 L100 130 L70 115 L70 85 Z" 
+          fill="white" 
+          class="animate-fade"/>
+    
+    <!-- Right face -->
+    <path d="M130 85 L130 115 L150 100 L150 70 Z" 
+          fill="rgba(255,255,255,0.8)" 
+          class="animate-fade"/>
+    
+    <!-- Top face -->
+    <path d="M100 70 L130 85 L150 70 L120 55 Z" 
+          fill="rgba(255,255,255,0.9)" 
+          class="animate-fade"/>
+  </g>
+
+  <!-- NzolaTrack text -->
+  <text x="100" y="160" 
+        text-anchor="middle" 
+        fill="white" 
+        font-family="Arial, sans-serif" 
+        font-size="16"
+        font-weight="bold">
+    NzolaTrack
+  </text>
+</svg>
