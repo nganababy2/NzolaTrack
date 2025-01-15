@@ -26,10 +26,10 @@ const Navigation = () => {
       <nav>
         <ul style={{ display: "flex", gap: "2rem" }}>
           <li>
-            <Link href="/about">Sobre</Link>
+            <Link href="/faq">FAQ</Link>
           </li>
           <li>
-            <Link href="/login">Login</Link>
+            <Link href="/login">Iniciar Sessão</Link>
           </li>
           <li>
             <Link href="/registro">Registro</Link>
