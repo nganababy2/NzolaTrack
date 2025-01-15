@@ -1,30 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import logoImg from "@/assets/logo.png";
+import { LogoImg } from "@/assets/";
 
 const Navigation = () => {
   return (
-    <header
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <Link
-        href="/"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.8rem",
-        }}
-      >
-        <Image src={logoImg} alt="Packge" />
-        NzolaTrack
+    <header className="flex flex-row justify-between items-center">
+      <Link href="/" className="flex items-center gap-3">
+        <Image src={LogoImg} alt="NzolaTrack logo" />
+        <h1 className="text-2xl">NzolaTrack</h1>
       </Link>
       <nav>
-        <ul style={{ display: "flex", gap: "2rem" }}>
+        <ul className="flex gap-8">
           <li>
             <Link href="/faq">FAQ</Link>
           </li>
