@@ -1,9 +1,5 @@
-const TrucksPage = () => {
-  return (
-    <div>
-      <h1>Trucks</h1>
-    </div>
-  );
+const Trr = () => {
+  return <div>trr</div>;
 };
 
-export default TrucksPage;
+export default Trr;

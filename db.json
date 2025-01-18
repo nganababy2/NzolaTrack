@@ -1,0 +1,86 @@
+{
+  "deliveries": [],
+  "companies": [
+    {
+      "id": "1",
+      "name": "Super Fornitures",
+      "nif": "123456789",
+      "phone": "923456789",
+      "email": "geral@sprfornitures.ao",
+      "username": "superfornitures",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "name": "Dada",
+      "nif": "00093",
+      "email": "geral@dada.ao",
+      "phone": "920129921",
+      "username": "dada",
+      "password": "123456"
+    },
+    {
+      "id": "3",
+      "name": "Empresa Maluco",
+      "nif": "000231",
+      "email": "geral@empmaluco.ao",
+      "phone": "932001221",
+      "username": "empMaluco",
+      "password": "123456",
+      "confirmPassword": "123456"
+    }
+  ],
+  "users": [
+    {
+      "companyId": 1,
+      "id": "1",
+      "idNumber": "123456789",
+      "name": "Kussy Almeida",
+      "email": "alme.kussy@gmail.com"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "1",
+      "plate": "LDA-1234",
+      "brand": "Toyota",
+      "model": "Canter",
+      "year": 2019,
+      "driverId": 1,
+      "status": "Disponível",
+      "type": "Carrinha",
+      "companyId": 1
+    },
+    {
+      "id": "0",
+      "brand": "Toyota",
+      "plate": "LDA-09-90",
+      "model": "Hiace",
+      "year": "2019",
+      "driverId": 1,
+      "status": "Disponível",
+      "type": "Carrinha",
+      "companyId": 1
+    }
+  ],
+  "drivers": [
+    {
+      "id": "1",
+      "idNumber": "123456789",
+      "name": "Romeno João",
+      "phone": "923456789",
+      "email": "joaorg@gmail.com",
+      "password": "123456",
+      "companyId": 1
+    },
+    {
+      "id": 0,
+      "name": "Pedro Cabinda",
+      "phone": "932001812",
+      "idNumber": "9092019331",
+      "email": "cabpedro@gmail.com",
+      "password": "",
+      "companyId": 1
+    }
+  ]
+}

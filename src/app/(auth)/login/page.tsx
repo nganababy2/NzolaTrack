@@ -1,12 +1,44 @@
 "use client";
 
+import axios from "axios";
 import { Eye, EyeOff, User } from "lucide-react";
 // import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 // import { LogoImg } from "@/assets";
 
 const LoginPage = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.get("http://localhost:3001/companies").then((res) => {
+      res.data.forEach((company) => {
+        if (
+          company.username === formData.username &&
+          company.password === formData.password
+        ) {
+          console.log("Logged in");
+          redirect("/dashboard");
+        } else {
+          alert("Credenciais Inválidas");
+        }
+      });
+    });
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     if (showPassword) {
@@ -26,7 +58,7 @@ const LoginPage = () => {
           </div> */}
           <h1 className="text-2xl pb-4">Iniciar Sessão</h1>
         </div>
-        <form className="w-full space-y-4">
+        <form onSubmit={handleSubmit} className="w-full space-y-4">
           <div>
             <label className="text-lg ">Utilizador</label>
             <div className="flex items-center border-b justify-between border-gray-400 p-3">
@@ -34,6 +66,8 @@ const LoginPage = () => {
                 className="w-full bg-transparent border-none outline-none"
                 type="text"
                 name="username"
+                onChange={handleChange}
+                required
               />
               <User size={28} />
             </div>
@@ -45,18 +79,20 @@ const LoginPage = () => {
                 className="w-full bg-transparent border-none outline-none"
                 type={!showPassword ? "password" : "text"}
                 name="password"
+                onChange={handleChange}
+                required
               />
               {!showPassword ? (
                 <EyeOff
                   onClick={() => handleShowPassword()}
                   size={28}
-                  cursor={"pointer"}
+                  className="hover:cursor-pointer"
                 />
               ) : (
                 <Eye
                   onClick={() => handleShowPassword()}
                   size={28}
-                  cursor={"pointer"}
+                  className="hover:cursor-pointer"
                 />
               )}
             </div>
@@ -68,8 +104,25 @@ const LoginPage = () => {
             Entrar
           </button>
         </form>
+        <div className="flex flex-col space-y-4">
+          <div>
+            <p className="text-sm">
+              Esqueceu a Senha?{" "}
+              <Link href="/recuperar-senha" className="text-sm underline">
+                Recuperar Credenciais
+              </Link>
+            </p>
+          </div>
+          <div>
+            <p className="text-sm">
+              Ainda não possui uma conta?{" "}
+              <Link href="/registro" className="text-sm underline">
+                Registre-se
+              </Link>
+            </p>
+          </div>
+        </div>
       </div>
-      <Link href="/dashboard">Dashboard</Link>
     </div>
   );
 };

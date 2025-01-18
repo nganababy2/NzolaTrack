@@ -1,20 +1,56 @@
+// //
+
+// // ------------------------------------------------
+
+// "use client";
+
+// const Map = () => {
+//   const position = { lat: -8.838333, lng: 13.234444 };
+
+//   return (
+//     <div className="w-full h-screen bg-blue-50 flex items-center justify-center">
+//       {/* Waze Live Map Embed */}
+//       <iframe
+//         title="Waze Map"
+//         src={`https://embed.waze.com/iframe?zoom=12&lat=${position.lat}&lon=${position.lng}&pin=1`}
+//         width="100%"
+//         height="100%"
+//         style={{ border: 0 }}
+//         allowFullScreen
+//       />
+//     </div>
+//   );
+// };
+
+// export default Map;
+
+// --------------------------------------------
+
 "use client";
 
-import { APIProvider, Map as GoogleMap } from "@vis.gl/react-google-maps";
+const WazeMapView = ({ selectedDelivery }) => {
+  const baseUrl = "https://embed.waze.com/iframe";
 
-const Map = () => {
-  const position = { lat: -8.838333, lng: 13.234444 };
+  const buildRouteUrl = () => {
+    if (!selectedDelivery) {
+      return `${baseUrl}?zoom=12&lat=-8.838333&lon=13.234444`;
+    }
+    const { origin, destination } = selectedDelivery;
+    return `${baseUrl}?zoom=12&origin=livemap&from=${origin.lat},${origin.lng}&to=${destination.lat},${destination.lng}`;
+  };
+
   return (
-    // <div className="w-full h-screen bg-blue-50 rounded-lg flex items-center justify-center">
-    //  {/* <p className="text-gray-500">Map View</p> */}
-    //  {/* In a real implementation, you would integrate with a mapping service like Google Maps or Mapbox here */}
-    // {/* </div> */}
-    <APIProvider apiKey={process.env.NEXT_PUBLIC_API_KEY + ""}>
-      <div className="w-full h-screen">
-        <GoogleMap zoom={12} center={position} />
-      </div>
-    </APIProvider>
+    <div className="flex-1 h-screen">
+      <iframe
+        title="Waze Map"
+        src={buildRouteUrl()}
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        allowFullScreen
+      />
+    </div>
   );
 };
 
-export default Map;
+export default WazeMapView;

@@ -3,3 +3,7 @@ export { default as MainNavigation } from "./main-navigation";
 export { default as DeliveryList } from "./delivery-list";
 export { default as Footer } from "./footer";
 export { default as MapView } from "./map";
+export { default as AddDelivery } from "./addDeliveryForm";
+export { default as DriverCard } from "./driver-card";
+export { default as VehicleCard } from "./vehicle-card";
+export { default as MenuItem } from "./dashboard-item";
