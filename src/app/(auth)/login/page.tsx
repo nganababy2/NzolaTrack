@@ -17,19 +17,21 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.get("http://localhost:3001/companies").then((res) => {
-      res.data.forEach((company) => {
-        if (
-          company.username === formData.username &&
-          company.password === formData.password
-        ) {
-          console.log("Logged in");
-          redirect("/dashboard");
-        } else {
-          alert("Credenciais Inválidas");
-        }
-      });
-    });
+    // axios.get("http://localhost:3001/companies").then((res) => {
+    //   res.data.forEach((company) => {
+    //     if (
+    //       company.username === formData.username &&
+    //       company.password === formData.password
+    //     ) {
+    //       console.log("Logged in");
+    //       redirect("/dashboard");
+    //     } else {
+    //       alert("Credenciais Inválidas");
+    //     }
+    //   });
+    // });
+
+    redirect("/dashboard");
   };
 
   const handleChange = (e) => {

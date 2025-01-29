@@ -44,11 +44,11 @@ const AddDeliveryForm = ({ onAddDelivery, setIsCancelling }) => {
   };
 
   return (
-    <div className="h-screen w-full flex items-center justify-center">
-      <div className="w-full max-w-md mx-auto p-6 border rounded-lg">
+    <div className="h-screen w-full ">
+      <div className="w-full max-w-md mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-semibold mb-4">Adicionar Entrega</h2>
-          <X onClick={setIsCancelling} />
+          <h2 className="text-xl font-bold">Adicionar Entrega</h2>
+          <X onClick={setIsCancelling} className="hover:cursor-pointer" />
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">

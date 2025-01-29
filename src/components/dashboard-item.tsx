@@ -19,7 +19,7 @@ const DashboardItem: React.FC<DashboardItemProps> = ({
     <div>
       <button
         onClick={onClick}
-        className={`flex flex-col items-center justify-center p-3 rounded-lg ${className}`}
+        className={`flex flex-col items-center justify-center p-3 ${className}`}
       >
         {Icon && <Icon />}
         <span className="text-md mt-2">{title}</span>

@@ -25,7 +25,9 @@ const DashboardNavigation = () => {
   ];
 
   const isActive = (currentPath: string, path: string): string =>
-    currentPath === path ? "text-[#5932EA]" : "hover:text-violet-600";
+    currentPath === path
+      ? "text-[#5932EA] border-b-2 border-[#5932EA]"
+      : "hover:text-violet-600";
 
   return (
     <div className="col-span-1 w-full h-screen flex flex-col items-center justify-betweens py-6 space-y-8">

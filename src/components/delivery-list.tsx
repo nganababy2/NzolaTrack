@@ -17,10 +17,10 @@ const DeliveryList: React.ComponentType<DeliveryListProps> = ({
   setIsAdding,
 }) => {
   return (
-    <div>
+    <div className="w-full">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-xl font-bold mb-6">Entregas</h1>
-        <Plus onClick={setIsAdding} />
+        <h1 className="text-xl font-bold">Entregas</h1>
+        <Plus onClick={setIsAdding} className="hover:cursor-pointer" />
       </div>
       <div className="space-y-4">
         {deliveries.map((delivery) => (
@@ -28,18 +28,20 @@ const DeliveryList: React.ComponentType<DeliveryListProps> = ({
             key={delivery.id}
             className={`p-4 border rounded-lg cursor-pointer ${
               selectedDelivery?.id === delivery.id
-                ? "border-violet-500 bg-violet-50"
-                : "border-gray-200"
+                ? "border-[#5932EA] border-2 text-[#5932EA]"
+                : "border-gray-400"
             }`}
             onClick={() => onDeliverySelect(delivery)}
           >
             <div className="flex justify-between items-start mb-3">
               <div>
-                <p className="font-medium">{delivery.id}</p>
-                <p className="text-sm text-gray-600">{delivery.type}</p>
+                <p className="font-semibold">{delivery.id}</p>
+                <p className="font-medium text-sm text-gray-400">
+                  {delivery.type}
+                </p>
               </div>
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-400">
               <p>
                 Origem: {delivery.origin.lat}, {delivery.origin.lng}
               </p>
